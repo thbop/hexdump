@@ -21,7 +21,7 @@ for j in range( 0, len(data), 32 ):
     for i in range(0, 32, 2):
         if j+i < len(data):
             character = data[j+i] + data[j+i+1]
-            print(character, end=' ' if i != 14 else '  ')
+            print(character.upper(), end=' ' if i != 14 else '  ')
             
             # Build the ascii representation on the side
             dec_char = int(character, 16)
