@@ -1,5 +1,5 @@
 # hexdump
-A very lightweight (30 lines) python hexdump utility.
+A very lightweight python hexdump utility.
 
 As I was writing my custom [6502 Emulator](https://github.com/thbop/6502) I decided to create a simple hexdump python script like the one in [Ben Eater's Video Here](https://youtu.be/0q6Ujn_zNH8?si=qB87dFz5KKBUPB_O&t=781).
 
