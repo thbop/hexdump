@@ -5,6 +5,8 @@ parser = argparse.ArgumentParser(description='A simple hexdump program')
 
 parser.add_argument('-f', type=str, help='The required file specifier')
 
+parser.add_argument('--max', type=int, help='Max amount of bytes to display')
+
 args = parser.parse_args()
 
 with open(args.f, 'rb') as f:
@@ -15,7 +17,7 @@ def padded_hex(value, padding=8):
     return ('0' * (padding - len(h))) + h # Adds padding and returns result.
 
 
-for j in range( 0, len(data), 32 ):
+for j in range( 0, min(len(data), args.max), 32 ):
     print(end=padded_hex( int(j/2) ) + '  ') # Prints line number
     ascii_chars = ' |'
     for i in range(0, 32, 2):
@@ -28,4 +30,3 @@ for j in range( 0, len(data), 32 ):
             ascii_char = chr(dec_char if dec_char > 32 and dec_char < 127 else 46)
             ascii_chars += ascii_char
     print(ascii_chars + '|')
-
